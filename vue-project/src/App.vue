@@ -41,168 +41,27 @@
             </svg>
           </a>
         </div>
+        <!-- Header QR Scan Shortcut (moved to far right) -->
+        <button type="button" class="header-qr-button" @click="handleHeaderScan" title="สแกน QR ด้วยกล้อง">
+          <img src="https://play-lh.googleusercontent.com/hS6IzlgqiniH0hVapCsTtYxd8-TviK9-sNPd4jBRd1hnaV3Aif7cyBisEyIy4inovg" alt="Scan QR" class="header-qr-icon" />
+        </button>
       </div>
     </nav>
 
-    <header class="hero" role="banner" aria-label="Hero section with Monstera video">
-      <!-- Replace the sample video URL with your high-definition Monstera unfurling video -->
-      <video autoplay muted loop playsinline crossorigin="anonymous" poster="">
-        <source src=".\assets\copy_E34E562B-1893-4D60-8D77-04625FDE2D82.mp4" type="video/mp4">
-        <!-- Fallback image if video cannot play -->
-      </video>
-      <div class="overlay">
-        <h1>มอนสเตอร่า เดลิซิโอซ่า</h1>
-        <p class="sub">Monstera Deliciosa</p>
-      </div>
-    </header>
-
-    <main class="container">
-      <section class="main">
-        <div class="content">
-
-          <section>
-            <h2 style="font-family:Athiti,sans-serif;font-weight:600;margin:0 0 0.5rem 0">ราชินีแห่งใบไม้</h2>
-            <p>
-              มอนสเตอร่า เดลิซิโอซ่า เป็นพืชในวงศ์ Araceae ที่มีลักษณะเด่นคือใบขนาดใหญ่มีรอยฉลุและแหว่ง
-              ซึ่งพัฒนาเมื่อพืชเติบโตในสภาพแสงและการรองรับที่เหมาะสม พืชชนิดนี้ชอบความชื้นปานกลาง ดินร่วนซุย
-              และแสงแดดรำไรในขณะที่สามารถปรับตัวได้ดีในบ้านที่มีแสงกระจาย
-            </p>
-
-            <h3 style="margin-top:1.25rem">ทำไมใบถึงมีรอยฉลุ?</h3>
-            <p>
-              รอยฉลุบนใบมอนสเตอร่าช่วยให้พืชลดแรงลมและเพิ่มการกระจายแสงให้ถึงใบภายในได้ดีขึ้น
-              อีกทฤษฎีหนึ่งคือช่วยให้ใบรับน้ำฝนหรือความชื้นได้อย่างมีประสิทธิภาพ
-              ซึ่งเป็นวิวัฒนาการที่เป็นประโยชน์ต่อพืชในป่าเขตร้อนที่มีใบใหญ่
-            </p>
-          </section>
-
-          <section>
-            <h2>วิธีการดูแล</h2>
-            <p>
-              แสง: แดดรำไรถึงแสงกระจาย; น้ำ: รดน้ำปานกลาง ปล่อยให้หน้าดินแห้งเล็กน้อยระหว่างการรด; ดิน:
-              ร่วนซุยระบายน้ำดี; ปุ๋ย: ให้นาน ๆ ครั้งในช่วงเติบโต
-            </p>
-          </section>
-
-          <section>
-            <h2>การขยายพันธุ์ & ข้อควรระวัง</h2>
-            <p>
-              การขยายพันธุ์ทำได้ด้วยการตัดยอดหรือกิ่งและปักชำในน้ำหรือดินเลี้ยงราก
-              ระวังว่ายางของมอนสเตอร่าเป็นพิษต่อสัตว์เลี้ยงและเด็กเล็ก ควรสวมถุงมือเมื่อแตะต้นและล้างมือหลังจากจัดการ
-            </p>
-          </section>
-        </div>
-
-        <aside class="sidebar" aria-label="Quick facts about Monstera">
-          <h4 style="margin-top:0">Quick Facts</h4>
-          <ul class="facts">
-            <li class="fact">☀️ แสงแดด: แดดรำไร</li>
-            <li class="fact">💧 การรดน้ำ: ปานกลาง</li>
-            <li class="fact">🧬 วงศ์: Araceae</li>
-            <li class="fact">🌎 ถิ่นกำเนิด: เม็กซิโก</li>
-            <li class="fact">☠️ ความเป็นพิษ: มีพิษ</li>
-          </ul>
-        </aside>
-      </section>
-
-      <section class="gallery">
-        <h3>ภาพมอนสเตอร่า เดลิซิโอซ่า</h3>
-        <div class="gallery-container">
-          <!-- Main Carousel Image with Navigation Arrows -->
-          <div class="main-carousel" aria-roledescription="carousel">
-            <img :src="gallery[current]" :alt="`ภาพ ${current + 1} ของ Monstera`" class="main-image" />
-
-            <!-- Navigation Arrows -->
-            <button class="nav-arrow nav-arrow-left" @click="prevImage" aria-label="รูปก่อนหน้า">
-              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
-                <path fill-rule="evenodd"
-                  d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
-              </svg>
-            </button>
-            <button class="nav-arrow nav-arrow-right" @click="nextImage" aria-label="รูปถัดไป">
-              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
-                <path fill-rule="evenodd"
-                  d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
-              </svg>
-            </button>
-          </div>
-
-          <!-- Thumbnail Gallery -->
-          <div class="thumbnail-gallery">
-            <div v-for="(image, index) in gallery" :key="index" class="thumbnail" :class="{ active: current === index }"
-              @click="selectImage(index)" :aria-label="`ดูภาพที่ ${index + 1}`" role="button" tabindex="0">
-              <img :src="image" :alt="`Thumbnail ${index + 1}`" />
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
+    <RouterView />
 
     <AppFooter />
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
 import AppFooter from './AppFooter.vue'
+import { RouterView } from 'vue-router'
 
-const gallery = ref([
-  'https://kla.vn/wp-content/uploads/2022/03/monstera-deliciosa-KLA-3.jpg',
-  'https://www.nanagarden.com/picture/product/400/351390.jpg',
-  'https://www.nanagarden.com/picture/product/400/336265.jpg',
-  'https://kla.vn/wp-content/uploads/2022/04/Monstera-deliciosa-%E2%80%98Brazilian-Common-Form-1.jpg',
-  'https://i.redd.it/these-monstera-deliciosa-in-m%C3%A1laga-v0-mklyssozplgf1.jpg?width=3024&format=pjpg&auto=webp&s=49aa940c62790a75458751f279aa0dee110a5ff4',
-  'https://i.redd.it/these-monstera-deliciosa-in-m%C3%A1laga-v0-ocwu5sozplgf1.jpg?width=3024&format=pjpg&auto=webp&s=aa474c333a39d897f0cf85fe9af12f18cb2ddd91',
-])
-
-const current = ref(0)
-let autoplayInterval = null
-
-// Next image
-function nextImage() {
-  current.value = (current.value + 1) % gallery.value.length
+// Header QR button now dispatches a global event that the current view can handle
+function handleHeaderScan() {
+  window.dispatchEvent(new Event('open-qr-scanner'))
 }
-
-// Previous image
-function prevImage() {
-  current.value = (current.value - 1 + gallery.value.length) % gallery.value.length
-}
-
-// Select image and pause autoplay temporarily
-function selectImage(index) {
-  current.value = index
-  // Pause autoplay temporarily
-  stopAutoplay()
-  // Resume after 5 seconds
-  setTimeout(() => {
-    startAutoplay()
-  }, 5000)
-}
-
-// Start autoplay
-function startAutoplay() {
-  if (autoplayInterval) return
-  autoplayInterval = setInterval(() => {
-    nextImage()
-  }, 4000) // Change image every 4 seconds
-}
-
-// Stop autoplay
-function stopAutoplay() {
-  if (autoplayInterval) {
-    clearInterval(autoplayInterval)
-    autoplayInterval = null
-  }
-}
-
-// Lifecycle hooks
-onMounted(() => {
-  startAutoplay()
-})
-
-onUnmounted(() => {
-  stopAutoplay()
-})
 </script>
 
 <style>
@@ -232,6 +91,56 @@ a {
   margin: 0;
   padding: 0;
   background-color: var(--bg-color)
+}
+
+/* Welcome Section */
+.welcome-section {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  padding: 3rem 2rem;
+  border-bottom: 1px solid rgba(45, 95, 60, 0.1);
+}
+
+.welcome-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.welcome-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.25rem;
+  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+  border-radius: 50px;
+  color: #2e7d32;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 8px rgba(46, 125, 50, 0.15);
+}
+
+.welcome-badge svg {
+  width: 20px;
+  height: 20px;
+}
+
+.welcome-title {
+  font-family: 'Athiti', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a202c;
+  margin: 0 0 1rem 0;
+  letter-spacing: -0.02em;
+}
+
+.welcome-description {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #4a5568;
+  margin: 0;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 /* HERO */
@@ -303,11 +212,167 @@ a {
 }
 
 .main .content {
-  background: white;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
   border: none;
+}
+
+/* Content Cards */
+.content-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  margin-bottom: 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+}
+
+.content-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.section-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.section-icon svg {
+  width: 24px;
+  height: 24px;
+  color: white;
+}
+
+.section-header h2 {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1a202c;
+}
+
+/* Info Highlight */
+.info-highlight {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  border-radius: 8px;
+  margin: 1.5rem 0;
+  border-left: 4px solid #1976d2;
+}
+
+.info-highlight svg {
+  flex-shrink: 0;
+  color: #1565c0;
+}
+
+.info-highlight span {
+  font-size: 1rem;
+  color: #0d47a1;
+}
+
+/* Care Grid */
+.care-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.care-item {
+  display: flex;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.care-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+.care-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.care-details {
+  flex: 1;
+}
+
+.care-details strong {
+  display: block;
+  font-size: 1.1rem;
+  color: #2d5f3c;
+  margin-bottom: 0.25rem;
+}
+
+.care-details p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #4a5568;
+  margin: 0;
+}
+
+/* Warning Card */
+.warning-card {
+  background: linear-gradient(135deg, #fff5f5 0%, #ffebee 100%);
+  border-left: 4px solid #d32f2f;
+}
+
+.warning-content p {
+  margin-bottom: 1.5rem;
+}
+
+.warning-box {
+  display: flex;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: rgba(211, 47, 47, 0.08);
+  border-radius: 8px;
+  border: 1px solid rgba(211, 47, 47, 0.2);
+}
+
+.warning-box svg {
+  flex-shrink: 0;
+  color: #d32f2f;
+  margin-top: 2px;
+}
+
+.warning-box p {
+  margin: 0;
+  color: #b71c1c;
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
 /* ขยายขนาดฟอนต์เนื้อหา */
@@ -330,7 +395,8 @@ a {
   font-size: 1.4rem;
   /* ขยายหัวข้อรอง */
   color: #2d3748;
-  margin-top: 1.25rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 /* Quick Facts Sidebar - Sticky on Desktop */
@@ -495,6 +561,32 @@ a {
   white-space: nowrap;
   flex-shrink: 0;
   letter-spacing: -0.01em;
+}
+
+.header-qr-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 66px; /* increased 50% from 44px */
+  height: 66px; /* increased 50% */
+  margin-left: auto; /* push to far right */
+  background: linear-gradient(135deg, #fff 0%, #f3f3f3 100%);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  font-size: 1.25rem;
+}
+
+.header-qr-button:hover {
+  transform: translateY(-2px);
+}
+
+.header-qr-icon {
+  width: 33px; /* 50% larger than 22px */
+  height: 33px;
+  object-fit: contain;
+  display: block;
 }
 
 .cta-button:hover {
@@ -676,158 +768,551 @@ a {
 }
 
 /* ============================================
-   RESPONSIVE DESIGN - Mobile First
-   Tablet: 768px, Desktop: 900px+
+   RESPONSIVE DESIGN - All Tourist Devices
+   Mobile: 320px-480px
+   Phablet: 481px-767px
+   Tablet: 768px-1024px
+   Laptop: 1025px-1440px
+   Desktop: 1441px+
    ============================================ */
 
-/* Tablet View (768px - 900px) */
-@media (max-width: 900px) and (min-width: 768px) {
+/* Extra Large Desktop (> 1440px) */
+@media (min-width: 1441px) {
+  .nav-content {
+    max-width: 1600px;
+    padding: 1.25rem 4rem;
+  }
+  
+  .main {
+    max-width: 1600px;
+    padding: 2rem 3rem;
+  }
+  
+  .welcome-section {
+    padding: 4rem 3rem;
+  }
+  
+  .welcome-title {
+    font-size: 3rem;
+  }
+  
+  .gallery-container {
+    max-width: 1100px;
+  }
+}
+
+/* Large Desktop/Laptop (1025px - 1440px) */
+@media (max-width: 1440px) and (min-width: 1025px) {
+  .nav-content {
+    padding: 1.25rem 3rem;
+  }
+  
+  .main {
+    padding: 1.5rem 2rem;
+  }
+  
+  .content-card {
+    padding: 2.5rem;
+  }
+  
+  .care-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Tablet Landscape & Small Laptop (901px - 1024px) */
+@media (max-width: 1024px) and (min-width: 901px) {
+  .nav-content {
+    padding: 1rem 2rem;
+    gap: 2rem;
+  }
+  
   .main {
     grid-template-columns: 65% 35%;
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+  
+  .welcome-section {
+    padding: 2.5rem 2rem;
+  }
+  
+  .welcome-title {
+    font-size: 2.25rem;
+  }
+  
+  .content-card {
+    padding: 2rem;
+  }
+  
+  .care-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .sidebar {
+    top: 70px;
+  }
+  
+  .main-image {
+    height: 500px;
+  }
+}
+
+/* Tablet Portrait (768px - 900px) */
+@media (max-width: 900px) and (min-width: 768px) {
+  .nav-content {
+    padding: 1rem 1.5rem;
+    gap: 1.5rem;
+  }
+  
+  .site-name {
+    font-size: 1rem;
+  }
+  
+  .nav-main-heading {
+    font-size: 1.1rem;
+  }
+  
+  .plant-card {
+    padding: 0.5rem 0.875rem;
+  }
+  
+  .cta-button {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.875rem;
+  }
+  
+  .main {
+    grid-template-columns: 60% 40%;
     gap: 1.25rem;
     padding: 1.25rem;
   }
   
-  .main .content {
-    padding: 1.5rem;
+  .welcome-section {
+    padding: 2rem 1.5rem;
+  }
+  
+  .welcome-title {
+    font-size: 2rem;
+  }
+  
+  .welcome-description {
+    font-size: 1.05rem;
+  }
+  
+  .content-card {
+    padding: 1.75rem;
+  }
+  
+  .section-header h2 {
+    font-size: 1.5rem;
+  }
+  
+  .care-grid {
+    grid-template-columns: 1fr;
   }
   
   .sidebar {
     padding: 1.25rem;
     top: 70px;
   }
+  
+  .main-image {
+    height: 450px;
+  }
+  
+  .thumbnail {
+    width: 90px;
+    height: 90px;
+  }
 }
 
-/* Mobile View (< 768px) - Single Column Stacked Layout */
-@media (max-width: 767px) {
-  .hero {
-    height: 100vh;
+/* Phablet (481px - 767px) */
+@media (max-width: 767px) and (min-width: 481px) {
+  .nav-content {
+    padding: 1rem 1.25rem;
+    gap: 1.25rem;
   }
-
-  /* Mobile-First: Stack Layout (70/30 becomes single column) */
+  
+  .logo-section {
+    gap: 0.625rem;
+  }
+  
+  .header-logo {
+    width: 26px;
+    height: 26px;
+  }
+  
+  .site-name {
+    font-size: 0.925rem;
+  }
+  
+  .nav-main-heading {
+    font-size: 1rem;
+  }
+  
+  .plant-cards {
+    gap: 0.75rem;
+  }
+  
+  .plant-card {
+    padding: 0.625rem 1rem;
+  }
+  
+  .plant-card img {
+    width: 42px;
+    height: 42px;
+  }
+  
+  .plant-name {
+    font-size: 0.875rem;
+  }
+  
+  .cta-button {
+    padding: 0.75rem 1.125rem;
+    font-size: 0.875rem;
+  }
+  
+  .hero {
+    height: 70vh;
+  }
+  
+  .hero h1 {
+    font-size: clamp(26px, 5vw, 48px);
+  }
+  
+  .hero p.sub {
+    font-size: clamp(28px, 2.2vw, 55px);
+  }
+  
+  .welcome-section {
+    padding: 2rem 1.25rem;
+  }
+  
+  .welcome-badge {
+    font-size: 0.85rem;
+    padding: 0.4rem 1rem;
+  }
+  
+  .welcome-title {
+    font-size: 1.875rem;
+  }
+  
+  .welcome-description {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+  
   .main {
     grid-template-columns: 1fr;
     padding: 1rem;
     gap: 1.5rem;
   }
   
-  .main .content {
+  .content-card {
     padding: 1.5rem;
-    border-radius: 8px;
-    order: 1;
+    border-radius: 10px;
   }
   
-  .main .content h2 {
+  .section-header {
+    gap: 0.75rem;
+  }
+  
+  .section-header h2 {
     font-size: 1.5rem;
   }
   
-  .main .content h3 {
-    font-size: 1.25rem;
+  .section-icon {
+    width: 42px;
+    height: 42px;
   }
   
-  .main .content p {
-    font-size: 1rem;
-    line-height: 1.6;
+  .care-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
-
-  /* Sidebar moves below content on mobile */
+  
+  .care-item {
+    padding: 1.125rem;
+  }
+  
   .sidebar {
     position: static;
     order: 2;
-    margin-top: 0;
-    padding: 1.5rem;
+  }
+  
+  .main-image {
+    height: 400px;
+  }
+  
+  .thumbnail {
+    width: 85px;
+    height: 85px;
+  }
+  
+  .nav-arrow {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+/* Mobile (320px - 480px) */
+@media (max-width: 480px) {
+  .nav-content {
+    flex-wrap: wrap;
+    padding: 0.875rem 1rem;
+    gap: 1rem;
+  }
+  
+  .logo-section {
+    order: 1;
+    gap: 0.5rem;
+  }
+  
+  .header-logo {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .site-name {
+    font-size: 0.85rem;
+  }
+  
+  .nav-main-heading {
+    order: 2;
+    font-size: 0.95rem;
+  }
+  
+  .plant-cards-wrapper {
+    order: 3;
+    width: 100%;
+    gap: 0.75rem;
+  }
+  
+  .plant-cards {
+    gap: 0.5rem;
+  }
+  
+  .plant-card {
+    padding: 0.5rem 0.75rem;
+    gap: 0.5rem;
+    border-radius: 8px;
+  }
+  
+  .plant-card img {
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+  }
+  
+  .plant-name {
+    font-size: 0.8rem;
+  }
+  
+  .cta-button {
+    padding: 0.625rem 1rem;
+    font-size: 0.8rem;
+    border-radius: 8px;
+  }
+  
+  .cta-button svg {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .hero {
+    height: 60vh;
+    min-height: 400px;
+  }
+  
+  .hero h1 {
+    font-size: clamp(22px, 5vw, 40px);
+  }
+  
+  .hero p.sub {
+    font-size: clamp(24px, 2vw, 45px);
+  }
+  
+  .welcome-section {
+    padding: 1.5rem 1rem;
+  }
+  
+  .welcome-badge {
+    font-size: 0.8rem;
+    padding: 0.375rem 0.875rem;
+  }
+  
+  .welcome-badge svg {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .welcome-title {
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+  
+  .welcome-description {
+    font-size: 0.925rem;
+    line-height: 1.65;
+  }
+  
+  .main {
+    grid-template-columns: 1fr;
+    padding: 0.75rem;
+    gap: 1.25rem;
+  }
+  
+  .content-card {
+    padding: 1.25rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+  }
+  
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.625rem;
+  }
+  
+  .section-header h2 {
+    font-size: 1.3rem;
+    line-height: 1.3;
+  }
+  
+  .section-icon {
+    width: 38px;
+    height: 38px;
+  }
+  
+  .section-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .info-highlight {
+    padding: 0.875rem 1rem;
+    gap: 0.625rem;
+  }
+  
+  .info-highlight svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .info-highlight span {
+    font-size: 0.9rem;
+  }
+  
+  .main .content h2 {
+    font-size: 1.3rem;
+  }
+  
+  .main .content h3 {
+    font-size: 1.15rem;
+  }
+  
+  .main .content p {
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+  
+  .care-grid {
+    grid-template-columns: 1fr;
+    gap: 0.875rem;
+  }
+  
+  .care-item {
+    padding: 1rem;
+    gap: 0.875rem;
+  }
+  
+  .care-icon {
+    font-size: 1.75rem;
+    width: 42px;
+    height: 42px;
+  }
+  
+  .care-details strong {
+    font-size: 1rem;
+  }
+  
+  .care-details p {
+    font-size: 0.875rem;
+  }
+  
+  .warning-box {
+    padding: 1rem;
+    gap: 0.75rem;
+  }
+  
+  .warning-box svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .warning-box p {
+    font-size: 0.9rem;
+  }
+  
+  .sidebar {
+    position: static;
+    order: 2;
+    padding: 1.25rem;
     border-radius: 8px;
   }
   
   .sidebar h4 {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
   }
-
-  /* Header responsive */
-  .nav-content {
-    flex-wrap: wrap;
-    padding: 1rem 1.5rem;
-    gap: 1.5rem;
+  
+  .fact {
+    font-size: 0.925rem;
   }
-
-  .logo-section {
-    order: 1;
-    gap: 0.75rem;
+  
+  .gallery {
+    padding: 1.5rem 0;
   }
-
-  .header-logo {
-    width: 28px;
-    height: 28px;
+  
+  .gallery h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
   }
-
-  .site-name {
-    font-size: 0.95rem;
+  
+  .gallery-container {
+    width: 95%;
   }
-
-  .nav-main-heading {
-    order: 2;
-    font-size: 1rem;
-  }
-
-  .plant-cards-wrapper {
-    order: 3;
-    width: 100%;
-    justify-content: flex-start;
-    overflow-x: auto;
-    gap: 1rem;
-  }
-
-  .plant-card {
-    padding: 0.6rem 1rem;
-    gap: 0.75rem;
-    border-radius: 10px;
-  }
-
-  .plant-card img {
-    width: 40px;
-    height: 40px;
-    border-radius: 7px;
-  }
-
-  .plant-name {
-    font-size: 0.85rem;
-  }
-
-  .cta-button {
-    padding: 0.75rem 1.25rem;
-    font-size: 0.85rem;
-    border-radius: 10px;
-  }
-
-  /* Gallery responsive */
+  
   .main-image {
-    height: 400px;
+    height: 300px;
   }
-
+  
   .thumbnail-gallery {
     gap: 0.5rem;
-    overflow-x: auto;
-    justify-content: flex-start;
-    padding: 0.5rem 0;
   }
-
+  
   .thumbnail {
-    width: 80px;
-    height: 80px;
-    flex-shrink: 0;
+    width: 70px;
+    height: 70px;
   }
-
+  
   .nav-arrow {
     width: 40px;
     height: 40px;
+    opacity: 1;
   }
-
+  
+  .nav-arrow svg {
+    width: 20px;
+    height: 20px;
+  }
+  
   .nav-arrow-left {
-    left: 10px;
+    left: 8px;
   }
-
+  
   .nav-arrow-right {
-    right: 10px;
+    right: 8px;
   }
 }
 </style>

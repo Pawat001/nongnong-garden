@@ -132,23 +132,41 @@ const featuredPlants = ref([
   background: linear-gradient(135deg, #66CDAA 0%, #5AB899 100%);
   color: #fff;
   padding: 3.5rem 1.5rem 2rem;
+  /* make all footer text use this base size */
+  font-size: 1.50rem;
   position: relative;
   font-family: 'Athiti', sans-serif;
   box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .footer-container {
-  max-width: 1200px;
-  margin: 0 auto;
+  /* span full width of viewport but keep internal padding for content */
+  width: 100%;
+  max-width: none;
+  padding: 0 1.5rem; /* reset padding so columns sit closer to center */
+  box-sizing: border-box;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2.5rem;
   margin-bottom: 2rem;
 }
 
+/* move the third footer column (quick-links + social) to the right */
+.footer-container .footer-column:nth-child(3) {
+  /* restore original placement: keep third column inline with others */
+  justify-self: start;
+  align-self: auto;
+  align-items: center;
+  text-align: right;
+  padding-right: 0.5rem;
+}
+
 .footer-column {
   display: flex;
   flex-direction: column;
+  /* ensure columns sit above quick-links when moved back */
+  position: relative;
+  z-index: 2;
 }
 
 /* Logo Section */
@@ -167,14 +185,14 @@ const featuredPlants = ref([
 }
 
 .logo-section h3 {
-  font-size: 1.4rem;
+  font-size: inherit;
   font-weight: 600;
   margin: 0;
   color: #fff;
 }
 
 .app-description {
-  font-size: 0.95rem;
+  font-size: inherit;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.9);
   margin-bottom: 1.25rem;
@@ -191,7 +209,7 @@ const featuredPlants = ref([
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  font-size: 0.9rem;
+  font-size: inherit;
   color: rgba(255, 255, 255, 0.95);
   transition: transform 0.2s;
 }
@@ -209,7 +227,8 @@ const featuredPlants = ref([
 /* Footer Column Headers */
 .footer-column h4 {
   font-family: 'Athiti', sans-serif;
-  font-size: 1.15rem;
+  /* use same base size as footer */
+  font-size: inherit;
   font-weight: 600;
   color: #ffffff;
   margin: 0 0 1.25rem 0;
@@ -254,7 +273,7 @@ const featuredPlants = ref([
 
 .plant-card span {
   padding: 0.5rem;
-  font-size: 0.85rem;
+  font-size: inherit;
   font-weight: 500;
   text-align: center;
 }
@@ -264,6 +283,12 @@ const featuredPlants = ref([
   list-style: none;
   padding: 0;
   margin: 0;
+  /* reset transform so quick-links sit in their natural position */
+  /* nudge further to the right as requested (+20px) */
+  transform: translate(56px, 0);
+  transition: transform 0.25s ease;
+  position: relative;
+  z-index: 0;
 }
 
 .quick-links li {
@@ -271,9 +296,9 @@ const featuredPlants = ref([
 }
 
 .quick-links a {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.92);
   text-decoration: none;
-  font-size: 0.95rem;
+  font-size: inherit;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -286,7 +311,7 @@ const featuredPlants = ref([
 }
 
 .quick-links a span {
-  font-size: 1.1rem;
+  font-size: inherit;
 }
 
 /* Social Icons */
@@ -322,16 +347,18 @@ const featuredPlants = ref([
 
 /* Footer Bottom */
 .footer-bottom {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding-top: 1.5rem;
+  /* make footer-bottom stretch full width to match footer-container */
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 1.5rem 1.5rem 0;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   text-align: center;
 }
 
 .footer-bottom p {
   margin: 0;
-  font-size: 0.9rem;
+  font-size: inherit;
   color: rgba(255, 255, 255, 0.85);
 }
 
@@ -375,6 +402,7 @@ const featuredPlants = ref([
   .footer-container {
     grid-template-columns: 1fr;
     gap: 2rem;
+    padding-right: 1rem; /* reduce right padding on small screens */
   }
   
   .featured-plants {
@@ -399,6 +427,19 @@ const featuredPlants = ref([
   .footer-logo {
     width: 40px;
     height: 40px;
+  }
+
+  /* reset alignment for the third column on small screens so it stacks naturally */
+  .footer-container .footer-column:nth-child(3) {
+    justify-self: start;
+    align-items: flex-start;
+    text-align: left;
+    padding-right: 0;
+    align-self: auto;
+  }
+
+  .quick-links {
+    transform: translateX(0);
   }
 }
 </style>
